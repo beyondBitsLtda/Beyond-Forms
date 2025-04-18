@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beyond Forms</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f8f9fc, #e0eafc);
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 30px 40px;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    input, textarea, select {
+      margin-top: 8px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #4285f4;
+      box-shadow: 0 0 4px rgba(66, 133, 244, 0.5);
+      outline: none;
+    }
+
+    button {
+      background-color: #4285f4;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3367d6;
+    }
+
+    #respostasList {
+      margin-top: 30px;
+      list-style: none;
+      padding: 0;
+    }
+
+    #respostasList li {
+      background-color: #f1f3f5;
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      line-height: 1.6;
+    }
+
+    .radio-group {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.radio-option {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-radio {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.radio-option input[type="radio"]:checked + .custom-radio {
+  background-color: #4285f4;
+  border-color: #4285f4;
+}
+
+.custom-radio::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.radio-option input[type="radio"]:checked + .custom-radio::after {
+  display: block;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Beyond Forms</h1>
+
+    <form id="customForm">
+      <!-- 🛠️ Personalize os campos aqui -->
+      <label>
+        Nome:
+        <input type="text" name="nome" required />
+      </label>
+
+      <label>
+        E-mail:
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Teste 1:
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="teste1" value="Ruim" required />
+            <span class="custom-radio"></span>
+            Ruim
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste1" value="Bom" required />
+            <span class="custom-radio"></span>
+            Bom
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste1" value="Ótimo" required />
+            <span class="custom-radio"></span>
+            Ótimo
+          </label>
+        </div>
+      </label>
+      
+      <label>
+        Teste 2:
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="teste2" value="Ruim" required />
+            <span class="custom-radio"></span>
+            Ruim
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste2" value="Bom" required />
+            <span class="custom-radio"></span>
+            Bom
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste2" value="Ótimo" required />
+            <span class="custom-radio"></span>
+            Ótimo
+          </label>
+        </div>
+      </label>
+      
+      <label>
+        Teste 3:
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="teste3" value="Ruim" required />
+            <span class="custom-radio"></span>
+            Ruim
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste3" value="Bom" required />
+            <span class="custom-radio"></span>
+            Bom
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste3" value="Ótimo" required />
+            <span class="custom-radio"></span>
+            Ótimo
+          </label>
+        </div>
+      </label>
+      
+      <label>
+        Teste 4:
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="teste4" value="Ruim" required />
+            <span class="custom-radio"></span>
+            Ruim
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste4" value="Bom" required />
+            <span class="custom-radio"></span>
+            Bom
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste4" value="Ótimo" required />
+            <span class="custom-radio"></span>
+            Ótimo
+          </label>
+        </div>
+      </label>
+      
+      <label>
+        Teste 5:
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="teste5" value="Ruim" required />
+            <span class="custom-radio"></span>
+            Ruim
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste5" value="Bom" required />
+            <span class="custom-radio"></span>
+            Bom
+          </label>
+      
+          <label class="radio-option">
+            <input type="radio" name="teste5" value="Ótimo" required />
+            <span class="custom-radio"></span>
+            Ótimo
+          </label>
+        </div>
+      </label>
+      
+      <label>
+        Gênero:
+        <select name="genero" required>
+          <option value="">Selecione</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Feminino">Feminino</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </label>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <button onclick="exportarRespostas()" style="margin-top: 20px;">Exportar Respostas (JSON)</button>
+
+    <h2>Respostas:</h2>
+    <ul id="respostasList"></ul>
+  </div>
+
+  <script>
+    const form = document.getElementById('customForm');
+    const respostasList = document.getElementById('respostasList');
+
+    // Carrega respostas do localStorage ao carregar a página
+    window.addEventListener('DOMContentLoaded', () => {
+      const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
+      respostas.forEach(exibirResposta);
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const respostaObj = {};
+
+      formData.forEach((value, key) => {
+        respostaObj[key] = value;
+      });
+
+      const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
+      respostas.push(respostaObj);
+      localStorage.setItem('respostas', JSON.stringify(respostas));
+
+      exibirResposta(respostaObj);
+      form.reset();
+    });
+
+    function exibirResposta(resposta) {
+      const li = document.createElement('li');
+      li.innerHTML = Object.entries(resposta)
+        .map(([key, value]) => {
+          const keyFormatada = key.charAt(0).toUpperCase() + key.slice(1);
+          return `<strong>${keyFormatada}:</strong> ${value}`;
+        })
+        .join('<br>');
+      respostasList.appendChild(li);
+    }
+
+    function exportarRespostas() {
+      const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
+
+      const blob = new Blob([JSON.stringify(respostas, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'respostas.json';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
