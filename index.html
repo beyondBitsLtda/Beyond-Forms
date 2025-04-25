@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Beyond Forms</title>
   <style>
-    /* Reset básico */
+    /* Estilos mantidos iguais aos anteriores */
     * {
       margin: 0;
       padding: 0;
@@ -100,59 +100,58 @@
     }
 
     .radio-group {
-  display: flex;
-  gap: 30px;
-  margin-top: 10px;
-}
+      display: flex;
+      gap: 30px;
+      margin-top: 10px;
+    }
 
-.radio-option {
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-  font-weight: 500;
-  user-select: none;
-}
+    .radio-option {
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+      font-weight: 500;
+      user-select: none;
+    }
 
-.radio-option input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
+    .radio-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
 
-.custom-radio {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 18px;
-  width: 18px;
-  background-color: white;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  transition: border-color 0.3s, background-color 0.3s;
-}
+    .custom-radio {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 18px;
+      width: 18px;
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
 
-.radio-option input[type="radio"]:checked + .custom-radio {
-  background-color: #4285f4;
-  border-color: #4285f4;
-}
+    .radio-option input[type="radio"]:checked + .custom-radio {
+      background-color: #4285f4;
+      border-color: #4285f4;
+    }
 
-.custom-radio::after {
-  content: "";
-  position: absolute;
-  display: none;
-}
+    .custom-radio::after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
 
-.radio-option input[type="radio"]:checked + .custom-radio::after {
-  display: block;
-  top: 3px;
-  left: 3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-}
-
+    .radio-option input[type="radio"]:checked + .custom-radio::after {
+      display: block;
+      top: 3px;
+      left: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
   </style>
 </head>
 <body>
@@ -160,140 +159,85 @@
     <h1>Beyond Forms</h1>
 
     <form id="customForm">
-      <!-- 🛠️ Personalize os campos aqui -->
-      <label>
-        Nome:
-        <input type="text" name="nome" required />
+      <label>Nome:<input type="text" name="nome" required /></label>
+      <label>E-mail:<input type="email" name="email" required /></label>
+
+      <!-- Testes de 1 a 5 -->
+      <label>Teste 1:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="teste1" value="Ruim" required /><span class="custom-radio"></span>Ruim</label>
+          <label class="radio-option"><input type="radio" name="teste1" value="Bom" required /><span class="custom-radio"></span>Bom</label>
+          <label class="radio-option"><input type="radio" name="teste1" value="Ótimo" required /><span class="custom-radio"></span>Ótimo</label>
+        </div>
+      </label>
+      <label>Teste 2:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="teste2" value="Ruim" required /><span class="custom-radio"></span>Ruim</label>
+          <label class="radio-option"><input type="radio" name="teste2" value="Bom" required /><span class="custom-radio"></span>Bom</label>
+          <label class="radio-option"><input type="radio" name="teste2" value="Ótimo" required /><span class="custom-radio"></span>Ótimo</label>
+        </div>
+      </label>
+      <label>Teste 3:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="teste3" value="Ruim" required /><span class="custom-radio"></span>Ruim</label>
+          <label class="radio-option"><input type="radio" name="teste3" value="Bom" required /><span class="custom-radio"></span>Bom</label>
+          <label class="radio-option"><input type="radio" name="teste3" value="Ótimo" required /><span class="custom-radio"></span>Ótimo</label>
+        </div>
+      </label>
+      <label>Teste 4:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="teste4" value="Ruim" required /><span class="custom-radio"></span>Ruim</label>
+          <label class="radio-option"><input type="radio" name="teste4" value="Bom" required /><span class="custom-radio"></span>Bom</label>
+          <label class="radio-option"><input type="radio" name="teste4" value="Ótimo" required /><span class="custom-radio"></span>Ótimo</label>
+        </div>
+      </label>
+      <label>Teste 5:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="teste5" value="Ruim" required /><span class="custom-radio"></span>Ruim</label>
+          <label class="radio-option"><input type="radio" name="teste5" value="Bom" required /><span class="custom-radio"></span>Bom</label>
+          <label class="radio-option"><input type="radio" name="teste5" value="Ótimo" required /><span class="custom-radio"></span>Ótimo</label>
+        </div>
       </label>
 
-      <label>
-        E-mail:
-        <input type="email" name="email" required />
-      </label>
-
-      <label>
-        Teste 1:
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="teste1" value="Ruim" required />
-            <span class="custom-radio"></span>
-            Ruim
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste1" value="Bom" required />
-            <span class="custom-radio"></span>
-            Bom
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste1" value="Ótimo" required />
-            <span class="custom-radio"></span>
-            Ótimo
-          </label>
-        </div>
-      </label>
-      
-      <label>
-        Teste 2:
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="teste2" value="Ruim" required />
-            <span class="custom-radio"></span>
-            Ruim
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste2" value="Bom" required />
-            <span class="custom-radio"></span>
-            Bom
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste2" value="Ótimo" required />
-            <span class="custom-radio"></span>
-            Ótimo
-          </label>
-        </div>
-      </label>
-      
-      <label>
-        Teste 3:
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="teste3" value="Ruim" required />
-            <span class="custom-radio"></span>
-            Ruim
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste3" value="Bom" required />
-            <span class="custom-radio"></span>
-            Bom
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste3" value="Ótimo" required />
-            <span class="custom-radio"></span>
-            Ótimo
-          </label>
-        </div>
-      </label>
-      
-      <label>
-        Teste 4:
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="teste4" value="Ruim" required />
-            <span class="custom-radio"></span>
-            Ruim
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste4" value="Bom" required />
-            <span class="custom-radio"></span>
-            Bom
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste4" value="Ótimo" required />
-            <span class="custom-radio"></span>
-            Ótimo
-          </label>
-        </div>
-      </label>
-      
-      <label>
-        Teste 5:
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="teste5" value="Ruim" required />
-            <span class="custom-radio"></span>
-            Ruim
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste5" value="Bom" required />
-            <span class="custom-radio"></span>
-            Bom
-          </label>
-      
-          <label class="radio-option">
-            <input type="radio" name="teste5" value="Ótimo" required />
-            <span class="custom-radio"></span>
-            Ótimo
-          </label>
-        </div>
-      </label>
-      
-      <label>
-        Gênero:
+      <!-- Campos adicionais -->
+      <label>Gênero:
         <select name="genero" required>
           <option value="">Selecione</option>
           <option value="Masculino">Masculino</option>
           <option value="Feminino">Feminino</option>
           <option value="Outro">Outro</option>
         </select>
+      </label>
+
+      <label>Você recomendaria este serviço?
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="recomendacao" value="Sim" required /><span class="custom-radio"></span>Sim</label>
+          <label class="radio-option"><input type="radio" name="recomendacao" value="Não" required /><span class="custom-radio"></span>Não</label>
+          <label class="radio-option"><input type="radio" name="recomendacao" value="Talvez" required /><span class="custom-radio"></span>Talvez</label>
+        </div>
+      </label>
+
+      <label>Nível de Satisfação:
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="satisfacao" value="1" required /><span class="custom-radio"></span>1</label>
+          <label class="radio-option"><input type="radio" name="satisfacao" value="2" required /><span class="custom-radio"></span>2</label>
+          <label class="radio-option"><input type="radio" name="satisfacao" value="3" required /><span class="custom-radio"></span>3</label>
+        </div>
+      </label>
+
+      <label>Faixa Etária:
+        <select name="faixaEtaria" required>
+          <option value="">Selecione</option>
+          <option value="Menos de 18">Menos de 18</option>
+          <option value="18 a 25">18 a 25</option>
+          <option value="26 a 35">26 a 35</option>
+          <option value="36 a 50">36 a 50</option>
+          <option value="Mais de 50">Mais de 50</option>
+        </select>
+      </label>
+
+      <label>Observações:
+        <textarea name="observacoes" rows="4" placeholder="Digite algo se desejar..."></textarea>
       </label>
 
       <button type="submit">Enviar</button>
@@ -309,7 +253,6 @@
     const form = document.getElementById('customForm');
     const respostasList = document.getElementById('respostasList');
 
-    // Carrega respostas do localStorage ao carregar a página
     window.addEventListener('DOMContentLoaded', () => {
       const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
       respostas.forEach(exibirResposta);
@@ -334,28 +277,18 @@
     });
 
     function exibirResposta(resposta) {
-      const li = document.createElement('li');
-      li.innerHTML = Object.entries(resposta)
-        .map(([key, value]) => {
-          const keyFormatada = key.charAt(0).toUpperCase() + key.slice(1);
-          return `<strong>${keyFormatada}:</strong> ${value}`;
-        })
-        .join('<br>');
-      respostasList.appendChild(li);
+      const item = document.createElement('li');
+      item.textContent = JSON.stringify(resposta, null, 2);
+      respostasList.appendChild(item);
     }
 
     function exportarRespostas() {
-      const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
-
-      const blob = new Blob([JSON.stringify(respostas, null, 2)], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-
+      const respostas = localStorage.getItem('respostas');
+      const blob = new Blob([respostas], { type: 'application/json' });
       const link = document.createElement('a');
-      link.href = url;
+      link.href = URL.createObjectURL(blob);
       link.download = 'respostas.json';
-      document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
     }
   </script>
 </body>
